@@ -1,6 +1,5 @@
 import { CLOUDINARY_CLOUD_NAME, CLOUDINARY_UPLOAD_PRESET, MAX_FILE_SIZE } from "@/constants";
 import { UploadWidgetValue } from "@/types";
-import { interval } from "date-fns";
 import { UploadCloud } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 

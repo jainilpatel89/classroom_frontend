@@ -1,9 +1,27 @@
 import { BACKEND_BASE_URL } from "@/constants";
 import { createDataProvider, CreateDataProviderOptions } from "@refinedev/rest";
 import { ListResponse } from "@/types";
+import { HttpError } from "@refinedev/core";
 
 if (!BACKEND_BASE_URL) {
   throw new Error("BACKEND_BASE_URL is not defined in environment variables");
+}
+
+const buildHttpError = async (response: Response): Promise<HttpError> => {
+  let message = 'Request failed';
+
+  try {
+    const payload = (await response.json()) as {message?: string}
+
+    if(payload?.message) message = payload.message;
+  } catch {
+    
+  }
+
+  return {
+    message,
+    statusCode: response.status,
+  }
 }
 
 const options: CreateDataProviderOptions = {
