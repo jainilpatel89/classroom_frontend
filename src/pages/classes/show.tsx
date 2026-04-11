@@ -59,7 +59,7 @@ const ClassesShow = () => {
 
                     <div>
                         <Badge variant="outline">{capacity}</Badge>
-                        <Badge variant={status == 'active' ? 'default' : 'secondary'} data-status={status}>{status.toUpperCase()}</Badge>
+                        <Badge variant={status === 'active' ? 'default' : 'secondary'} data-status={status}>{status.toUpperCase()}</Badge>
                     </div>
                 </div>
 
