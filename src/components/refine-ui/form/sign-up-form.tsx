@@ -113,9 +113,9 @@ export const SignUpForm = () => {
                 name="role"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Role *</FormLabel>
+                    <FormLabel>Role <span className="text-orange-600">*</span></FormLabel>
                     <FormControl>
-                      <div className="roles">
+                      <div className="roles grid grid-cols-3 gap-4">
                         {ROLE_OPTIONS.map((role) => {
                           return (
                             <button
@@ -183,7 +183,7 @@ export const SignUpForm = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Full Name *</FormLabel>
+                    <FormLabel>Full Name <span className="text-orange-600">*</span></FormLabel>
                     <FormControl>
                       <Input placeholder="John Doe" {...field} />
                     </FormControl>
@@ -197,7 +197,7 @@ export const SignUpForm = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email *</FormLabel>
+                    <FormLabel>Email <span className="text-orange-600">*</span></FormLabel>
                     <FormControl>
                       <Input
                         type="email"
@@ -215,7 +215,7 @@ export const SignUpForm = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password *</FormLabel>
+                    <FormLabel>Password <span className="text-orange-600">*</span></FormLabel>
                     <FormControl>
                       <InputPassword
                         {...field}
