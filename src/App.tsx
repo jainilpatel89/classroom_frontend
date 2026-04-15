@@ -29,6 +29,9 @@ import DepartmentsCreate from "./pages/departments/create";
 import DepartmentsShow from "./pages/departments/show";
 import FacultyList from "./pages/faculty/list";
 import FacultyShow from "./pages/faculty/show";
+import EnrollmentsCreate from "./pages/enrollments/create";
+import EnrollmentsJoin from "./pages/enrollments/join";
+import EnrollmentConfirm from "./pages/enrollments/confirm";
 
 
 function App() {
@@ -71,6 +74,12 @@ function App() {
                   list: '/faculty',
                   show: '/faculty/show/:id',
                   meta: { label: 'Faculty', icon: <Users />}
+                },
+                {
+                  name: 'enrollments',
+                  list: '/enrollments/create',
+                  create: '/enrollments/create',
+                  meta: { label: 'Enrollments', icon: <ClipboardCheck />}
                 },
                 {
                   name: 'classes', 
@@ -119,6 +128,12 @@ function App() {
                       <Route index element={<FacultyList />} />
                       <Route path="show/:id" element={<FacultyShow />} />
                     </Route>
+
+                  <Route path="enrollments">
+                    <Route path="create" element={<EnrollmentsCreate />} />
+                    <Route path="join" element={<EnrollmentsJoin />} />
+                    <Route path="confirm" element={<EnrollmentConfirm />} />
+                  </Route>
 
                     <Route path="classes">
                       <Route index element={<ClassesList />} />
