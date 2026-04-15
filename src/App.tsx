@@ -14,7 +14,7 @@ import { useNotificationProvider } from "./components/refine-ui/notification/use
 import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
 import { dataProvider } from "./providers/data";
 import Dashboard from "./pages/dashboard";
-import { BookOpen, Building2, GraduationCap, Home, Users } from "lucide-react";
+import { BookOpen, Building2, ClipboardCheck, GraduationCap, Home, Users } from "lucide-react";
 import { Layout } from "./components/refine-ui/layout/layout";
 import SubjectsList from "./pages/subjects/list";
 import SubjectsCreate from "./pages/subjects/create";
@@ -29,6 +29,7 @@ import DepartmentsCreate from "./pages/departments/create";
 import DepartmentsShow from "./pages/departments/show";
 import FacultyList from "./pages/faculty/list";
 import FacultyShow from "./pages/faculty/show";
+
 
 function App() {
   return (
@@ -66,17 +67,17 @@ function App() {
                   meta: { label: 'Departments', icon: <Building2 />} 
                 },
                 {
+                  name: 'users',
+                  list: '/faculty',
+                  show: '/faculty/show/:id',
+                  meta: { label: 'Faculty', icon: <Users />}
+                },
+                {
                   name: 'classes', 
                   list: '/classes', 
                   create: '/classes/create',
                   show: '/classes/show/:id',
                   meta: { label: 'Classes', icon: <GraduationCap />} 
-                },
-                {
-                  name: 'users',
-                  list: '/faculty',
-                  show: '/faculty/show/:id',
-                  meta: { label: 'Faculty', icon: <Users />}
                 },
               ]}
             >

@@ -210,6 +210,7 @@ const ClassesList = () => {
         mode: "server",
       },
       filters: {
+        // Compose refine filters from the current UI selections.
         permanent: [...subjectFilters, ...teacherFilters, ...searchFilters],
       },
       sorters: {

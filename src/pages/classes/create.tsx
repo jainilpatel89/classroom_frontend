@@ -1,30 +1,35 @@
-import { Breadcrumb } from "@/components/refine-ui/layout/breadcrumb";
-import { CreateView } from "@/components/refine-ui/views/create-view";
+import { useForm } from "@refinedev/react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { useList, useBack } from "@refinedev/core";
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "@refinedev/react-hook-form"
-import { classSchema } from "@/lib/schema";
-import * as z from "zod";
-
 import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+import { CreateView } from "@/components/refine-ui/views/create-view";
+import { Breadcrumb } from "@/components/refine-ui/layout/breadcrumb";
+
+import { Textarea } from "@/components/ui/textarea";
+import { useBack, useList } from "@refinedev/core";
+import { Loader2 } from "lucide-react";
+import { classSchema } from "@/lib/schema";
 import UploadWidget from "@/components/upload-widget";
 import { Subject, User } from "@/types";
-import { Loader2 } from "lucide-react";
-import { Textarea } from "@/components/ui/textarea";
+import z from "zod";
 
 const ClassesCreate = () => {
   const back = useBack();
@@ -34,6 +39,9 @@ const ClassesCreate = () => {
     refineCoreProps: {
       resource: "classes",
       action: "create",
+    },
+    defaultValues: {
+      status: "active",
     },
   });
 
@@ -54,6 +62,7 @@ const ClassesCreate = () => {
     }
   };
 
+  // Fetch subjects list
   const { query: subjectsQuery } = useList<Subject>({
     resource: "subjects",
     pagination: {
@@ -61,6 +70,7 @@ const ClassesCreate = () => {
     },
   });
 
+  // Fetch teachers list
   const { query: teachersQuery } = useList<User>({
     resource: "users",
     filters: [
@@ -124,7 +134,7 @@ const ClassesCreate = () => {
                                 }
                               : null
                           }
-                          onChange={(file: any, field: any) => {
+                          onChange={(file) => {
                             if (file) {
                               field.onChange(file.url);
                               form.setValue("bannerCldPubId", file.publicId, {
