@@ -1,6 +1,6 @@
-# 🎓 Classroom Admin Dashboard — Frontend
+# 🎓 Classroom Management Application — Frontend
 
-A modern admin dashboard for managing academic systems, including departments, subjects, classes, faculty, and student enrollments. Built with Refine, React, and TypeScript, and integrated with a secure REST API.
+A modern management application for managing academic systems, including departments, subjects, classes, faculty, and student enrollments. Built with Refine, React, and TypeScript, and integrated with a secure REST API.
 
 **Live Demo:** [classroom-frontend-gules.vercel.app](https://classroom-frontend-gules.vercel.app)  
 **Backend Repository:** [github.com/jainilpatel89/classroom_backend](https://github.com/jainilpatel89/classroom_backend)
